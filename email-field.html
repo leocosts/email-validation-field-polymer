@@ -1,0 +1,48 @@
+<dom-module id="email-field">
+
+  <style>
+    /*here you can include the style of the elements which are inside the template tag*/
+    /* if you like change some style element from another place, you have to instance nameofcomponent nameofcomponenttemplate.nameofcomponent */
+  </style>
+
+  <template>
+    <input type="text" value="{{email::keyup}}">
+    <!-- keyup is a html event, you can see all of them end choose which you would like to use -->
+    <h1>{{message}} </h1>
+
+  </template>
+  <script>
+  Polymer({
+    is: "email-field",
+
+    properties: {
+      email:{
+        type: String,
+        value: ''
+      },
+      message:{
+        type: String,
+        computed: 'validationEmail(email)'
+      }
+
+      /* Atention, if you want to use uppercase by properties name, o have to swap to -lowercase in your main html */
+    },
+
+    validationEmail: function(email){
+      var atpos = email.indexOf("@");
+      var dotpos = email.lastIndexOf(".");
+      if(email.length<=0){
+        return 'Can not be empty ';
+      } else {
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+          return 'Not a valid e-mail address ';
+        }else{
+          return '';
+        }
+    }
+  }
+
+  })
+  </script>
+
+  <script>

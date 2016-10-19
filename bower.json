@@ -1,0 +1,13 @@
+{
+  "name": "Polymer simple email validator",
+  "authors": [
+    "Leandro Costa <leocosts@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "polymer": "^1.7.0"
+  }
+}
